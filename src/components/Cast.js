@@ -10,11 +10,18 @@ const Wrapper = styled.div`
 `;
 
 const Credits = ({ cast, baseUrl }) => {
+  const [totalShow, setTotalShow] = useState(null);
+  const sliderElement = useRef();
+  useEffect(() => {
+    changeTotalShow();
+    window.addEventListener('resize', changeTotalShow);
+    return () => window.removeEventListener('resize', changeTotalShow);
+  }, []);
+  
   if (!cast) {
     return <Loader />;
   }
-  const [totalShow, setTotalShow] = useState(null);
-  const sliderElement = useRef();
+
 
   // Set amount of items to show on slider based on the width of the element
   const changeTotalShow = () => {
@@ -29,11 +36,7 @@ const Credits = ({ cast, baseUrl }) => {
     <CastItem person={person} baseUrl={baseUrl} key={person.id} />
   ));
 
-  useEffect(() => {
-    changeTotalShow();
-    window.addEventListener('resize', changeTotalShow);
-    return () => window.removeEventListener('resize', changeTotalShow);
-  }, []);
+
 
   const settings = {
     dots: false,

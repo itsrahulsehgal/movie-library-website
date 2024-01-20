@@ -6,7 +6,6 @@ import StickyBox from 'react-sticky-box';
 import { slide as Menu } from 'react-burger-menu';
 
 import SearchBar from '../components/SearchBar';
-import TmdbLogoGreen from '../svg/tmdbgreen.svg';
 import MenuItem from '../components/MenuItem';
 
 const WrapperStickyBox = styled(StickyBox)`
@@ -62,61 +61,61 @@ const LinkWrap = styled(Link)`
   margin-bottom: 0.5rem;
 `;
 
-const StyledCoffe = styled.a`
-  display: flex !important;
-  outline: none;
-  justify-content: center !important;
-  align-items: center !important;
-  padding: 0.5rem 2rem;
-  color: #000000;
-  background-color: #ffffff;
-  border-radius: 3px;
-  font-family: 'Montserrat', sans-serif;
-  border: 1px solid transparent;
-  text-decoration: none;
-  font-family: 'Montserrat';
-  font-size: 1.2rem;
-  letter-spacing: 0.6px;
-  box-shadow: 0px 1px 2px rgba(190, 190, 190, 0.5);
-  margin: 2rem auto;
-  transition: 0.3s all linear;
+// const StyledCoffe = styled.a`
+//   display: flex !important;
+//   outline: none;
+//   justify-content: center !important;
+//   align-items: center !important;
+//   padding: 0.5rem 2rem;
+//   color: #000000;
+//   background-color: #ffffff;
+//   border-radius: 3px;
+//   font-family: 'Montserrat', sans-serif;
+//   border: 1px solid transparent;
+//   text-decoration: none;
+//   font-family: 'Montserrat';
+//   font-size: 1.2rem;
+//   letter-spacing: 0.6px;
+//   box-shadow: 0px 1px 2px rgba(190, 190, 190, 0.5);
+//   margin: 2rem auto;
+//   transition: 0.3s all linear;
 
-  &img {
-    width: 27px;
-    box-shadow: none;
-    border: none;
-    vertical-align: middle;
-  }
+//   &img {
+//     width: 27px;
+//     box-shadow: none;
+//     border: none;
+//     vertical-align: middle;
+//   }
 
-  &:hover,
-  &:active,
-  &:focus {
-    text-decoration: none;
-    box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5);
-    opacity: 0.85;
-    color: #000000;
-  }
-`;
+//   &:hover,
+//   &:active,
+//   &:focus {
+//     text-decoration: none;
+//     box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5);
+//     opacity: 0.85;
+//     color: #000000;
+//   }
+// `;
 
-const CopyRight = styled.div`
-  display: flex;
-  align-self: center;
-  align-items: center;
-  color: ${props => (props.mobile ? '#fff' : 'var(--color-primary-dark)')};
-  margin-bottom: ${props => (props.mobile ? '2rem' : '')};
-`;
+// const CopyRight = styled.div`
+//   display: flex;
+//   align-self: center;
+//   align-items: center;
+//   color: ${props => (props.mobile ? '#fff' : 'var(--color-primary-dark)')};
+//   margin-bottom: ${props => (props.mobile ? '2rem' : '')};
+// `;
 
-const StyledLink = styled.a`
-  text-decoration: none;
-  font-weight: 500;
-  margin-left: 4px;
-  color: inherit;
-`;
+// const StyledLink = styled.a`
+//   text-decoration: none;
+//   font-weight: 500;
+//   margin-left: 4px;
+//   color: inherit;
+// `;
 
-const Svg = styled.img`
-  max-width: 100%;
-  height: 3rem;
-`;
+// const Svg = styled.img`
+//   max-width: 100%;
+//   height: 3rem;
+// `;
 
 var styles = {
   bmBurgerButton: {
@@ -176,28 +175,6 @@ const MenuMobile = ({ genres, staticCategories, selected }) => {
         {renderStatic(staticCategories, selected, setisOpened)}
         <Heading>Genres</Heading>
         {renderGenres(genres, selected, setisOpened)}
-        <StyledCoffe
-          target="_blank"
-          rel="noopener noreferrer"
-          href="https://www.buymeacoffee.com/fidalgodev"
-        >
-          <img
-            src="https://www.buymeacoffee.com/assets/img/BMC-btn-logo.svg"
-            alt="Buy me a coffee"
-          />
-          <span style={{ marginLeft: '5px' }}>Buy me a coffee</span>
-        </StyledCoffe>
-        <CopyRight mobile={true}>
-          Copyright ©
-          <StyledLink href="https://www.github.com/fidalgodev">
-            Fidalgo
-          </StyledLink>
-        </CopyRight>
-        <Svg
-          src={`${TmdbLogoGreen}`}
-          alt="The Movie Database"
-          style={{ marginBottom: '2rem' }}
-        />
       </Menu>
     </React.Fragment>
   );
