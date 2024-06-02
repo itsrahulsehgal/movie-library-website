@@ -1,45 +1,39 @@
-import React from 'react';
-import styled from 'styled-components';
+import React, { Component } from 'react'
+import { Link } from 'react-router-dom'
 
-const Title = styled.h1`
-  font-size: ${props => (props.size === '2' ? '4rem' : '2.5rem')};
-  font-weight: 200;
-  line-height: ${props => (props.size === '2' ? '1.2' : '1')};
-  color: var(--color-primary-dark);
-  letter-spacing: -0.5px;
-  text-transform: uppercase;
-  margin-bottom: 0.5rem;
-
-  @media ${props => props.theme.mediaQueries.medium} {
-    font-size: ${props => (props.size === '2' ? '2.7rem' : '2.2rem')};
+export default class Header extends Component {
+  render() {
+    return (
+      <header>
+        <div className="container">
+          <ul className="menu">
+            <li>
+              <Link to="/">Home</Link>
+            </li>
+            <li>
+              <Link to="/movies">Movies</Link>
+              <ul className="sub-menu">
+                  <li><Link to={`/movies/now_playing`}>Now Playing</Link></li>
+                  <li><Link to={`/movies/popular`}>Popular</Link></li>
+                  <li><Link to={`/movies/top_rated`}>Top Rated</Link></li>
+                  <li><Link to={`/movies/upcoming`}>Upcoming</Link></li>
+              </ul>
+            </li>
+            <li>
+              <Link to="/shows">TV</Link>
+              <ul className="sub-menu">
+                  <li><Link to={`/shows/airing_today`}>Airing Today</Link></li>
+                  <li><Link to={`/shows/popular`}>Popular</Link></li>
+                  <li><Link to={`/shows/top_rated`}>Top Rated</Link></li>
+              </ul>
+              
+            </li>
+            <li>
+              <Link to="/people">People</Link>
+            </li>
+          </ul>
+        </div>
+      </header>
+    )
   }
-
-  @media ${props => props.theme.mediaQueries.small} {
-    font-size: ${props => (props.size === '2' ? '2.2rem' : '2rem')};
-  }
-`;
-
-const Subtitle = styled.h2`
-  text-transform: uppercase;
-  line-height: ${props => (props.size === '2' ? '1.5' : '1')};
-  color: var(--color-primary);
-  font-size: ${props => (props.size === '2' ? '1.7rem' : '1.2rem')};
-  font-weight: 700;
-
-  @media ${props => props.theme.mediaQueries.medium} {
-    font-size: ${props => (props.size === '2' ? '1.3rem' : '1.1rem')};
-  }
-`;
-
-const HeaderWrapper = styled.div`
-  margin-bottom: 2rem;
-`;
-
-const Header = ({ title, subtitle, size }) => (
-  <HeaderWrapper>
-    <Title size={size}>{title}</Title>
-    <Subtitle size={size}>{subtitle}</Subtitle>
-  </HeaderWrapper>
-);
-
-export default Header;
+}
