@@ -1,11 +1,16 @@
-import { combineReducers } from 'redux'
-
-import genres from './genres'
-import entities from './entities'
-import search from './search'
+import { combineReducers  } from 'redux';
+import PopularReducers from './PopularReducers';
+import OverviewReducers from './OverviewReducers';
+import NowPlayingReducers from './NowPlayingReducers';
+import TopRatedReducers from './TopRatedReducers';
+import SearchReducers from './SearchReducers';
+import genreReducers from './GenreReducers';
 
 export default combineReducers({
-    entities,
-    search,
-    genres
-})
+    popular: PopularReducers,
+    overview: OverviewReducers,
+    nowplaying: NowPlayingReducers,
+    toprated: TopRatedReducers,
+    searchResult: SearchReducers,
+    genre: genreReducers
+});
